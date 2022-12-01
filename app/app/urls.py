@@ -1,3 +1,4 @@
+
 from drf_spectacular.views import(
     SpectacularAPIView,
     SpectacularSwaggerView,
@@ -8,13 +9,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    """ Below two paths for generating swagger docs"""
-
     path('api/schema/',SpectacularAPIView.as_view(),name='api-schema'),
-    path(
-        'api/docs/',
-        SpectacularSwaggerView.as_view(url_name='api-schema'),
-        name='api-docs',
-        )
+    path('api/docs/',SpectacularSwaggerView.as_view(url_name='api-schema'),name='api-docs',)
 ]
